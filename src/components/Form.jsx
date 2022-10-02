@@ -1,28 +1,35 @@
-import React, { useState } from 'react';
-import Input from "../components/Input";
-import Button from "../components/Button";
+import { useState } from "react";
 
-function Form() {
-  const [name, setName] = React.useState('');
+function Form(props) {
+  const { setData } = props;
+  const [name, setName] = useState("");
 
+  const handleAddTodo = (event) => {
+    event.preventDefault();
 
-  function handleSubmit(event) {
- event.preventDefault();
- console.log('name:', name);
-  }
+    setData((prevData) => {
+      return [...prevData, name];
+    });
+
+    setName("");
+  };
+
+  const handleOnChange = (e) => {
+    setName(e.target.value);
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="text__input">
-
-<input className="text__input" type="text"  value={name}
- onChange={(e) => setName(e.target.value)} />
-<button type="submit" className="submit__button">добавить задачу</button>
-
-
-      {/* <Input />
-      <Button /> */}
-    </form>
+    <div>
+      <input
+        className="text__input"
+        type="text"
+        value={name}
+        onChange={handleOnChange}
+      />
+      <button onClick={handleAddTodo} className="submit__button">
+        добавить задачу
+      </button>
+    </div>
   );
 }
 export default Form;
-
