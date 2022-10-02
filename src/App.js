@@ -6,16 +6,9 @@ import List from "./components/List";
 function App() {
   const [data, setData] = useState([""]);
 
-  const ajaxSend = async(formData) => {
-    fetch('http://react.loc/read.php', {
-        method: 'POST',
-        body: formData
-    }).then(resp => {
-      console.log(`data ${resp.data}`)
-      debugger
-    })
-};
-ajaxSend()
+  fetch('http://react.loc/read.php')
+  .then((response) => response.json())
+  .then((data) => console.log(data));
 
   return (
     <div className="main__wrapper">
