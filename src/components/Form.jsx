@@ -1,19 +1,19 @@
 import { useState } from "react";
 
-function Form(props) {
-  const { setData } = props;
+function Form() {
   const [name, setName] = useState("");
 
   const handleAddTodo = (event) => {
     event.preventDefault();
 
-    setData((prevData) => {
-      return [...prevData, name];
+    const payload = JSON.stringify({
+      text: name,
     });
 
-    // NOTE:
-    // SET DATA
-    // fetch post payload={name}
+    fetch("https://rockandrolla.tk/add.php", {
+      method: "POST",
+      body: payload,
+    });
 
     setName("");
   };
