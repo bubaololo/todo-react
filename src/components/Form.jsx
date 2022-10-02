@@ -11,6 +11,10 @@ function Form(props) {
       return [...prevData, name];
     });
 
+    // NOTE:
+    // SET DATA
+    // fetch post payload={name}
+
     setName("");
   };
 

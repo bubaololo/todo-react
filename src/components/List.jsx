@@ -1,14 +1,17 @@
-function List() {
-    return (
-      <div className="list">
-        <div className="list__item">
-          yolo!
-        </div>
-        <div className="list__item">
-          yolo!
-        </div>
-      </div>
+const List = (props) => {
+  const { data } = props;
 
-    )
-  }
-  export default List;
+  // NOTE
+  // GET DATA
+
+  return (
+    <div className="list">
+      {data.map((dataItem, index) => (
+        <div key={index} className="list__item">
+          {dataItem}
+        </div>
+      ))}
+    </div>
+  );
+};
+export default List;

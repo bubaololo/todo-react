@@ -4,13 +4,12 @@ import Form from "./components/Form";
 import List from "./components/List";
 
 function App() {
-  const [data, setData] = useState(["Initial string value"]);
+  const [data, setData] = useState([""]);
 
   return (
     <div className="main__wrapper">
       <Form setData={setData} />
-      {/* <List data={data} /> */}
-      <div className="item"></div>
+      <List data={data} />
     </div>
   );
 }
