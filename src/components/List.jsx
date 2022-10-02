@@ -4,6 +4,8 @@ const List = (props) => {
   // NOTE
   // GET DATA
 
+
+
   return (
     <div className="list">
       {data.map((dataItem, index) => (
