@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getTodos } from "./api";
 
 import Form from "./components/Form";
 import List from "./components/List";
@@ -6,9 +7,15 @@ import List from "./components/List";
 function App() {
   const [data, setData] = useState([""]);
 
-  fetch('http://react.loc/read.php')
-  .then((response) => response.json())
-  .then((data) => console.log(data));
+  useEffect(() => {
+    const fetchTodos = async () => {
+      const responseData = await getTodos();
+
+      setData(responseData);
+    };
+
+    fetchTodos();
+  }, []);
 
   return (
     <div className="main__wrapper">
