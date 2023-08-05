@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 3rem;
+  background-color: #4158d0;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h1,
+h2 {
+  color: #333333;
+}
+
+.btn {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #800040;
+  color: white;
+  border: 1px solid #800040;
+  margin: 0 1rem;
+}
+
+.btn:hover {
+  background-color: #9c1458;
+  border-color: #9c1458;
+}
+
+.btn--alt {
+  background-color: transparent;
+  color: #800040;
+}
+
+.btn--alt:hover {
+  background-color: #f8dae9;
+}
+
+.text__input {
+  border-radius: 30px;
+  margin: 0px 0px 0.5em;
+  padding: 0.5em 1.5em;
+  background-color: rgba(255, 255, 255, 0.23);
+  box-shadow: rgb(255, 255, 255) 0px 0px 20px inset;
+  border: none;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  min-width: 20rem;
+  min-height: 10rem;
+}
+.submit__button {
+  border-radius: 30px;
+  margin: 0px 0px 0.5em 1em;
+  padding: 0.5em 1.5em;
+  background-color: rgba(255, 255, 255, 0.23);
+  box-shadow: rgb(255, 255, 255) 0px 0px 20px inset;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.submit__button:hover {
+  box-shadow: rgb(255, 255, 255) 0px 0px 20px;
+  transition: all 0.3s;
+}
+.submit__button:active {
+  box-shadow: rgb(18, 1, 1) 0px 0px 20px;
+}
