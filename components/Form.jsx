@@ -21,12 +21,13 @@ function Form() {
 
   const handleAddTodo = (event) => {
     event.preventDefault();
-
+    if(name){
     const payload = {
       task: name,
     };
-
+  
     mutationAddTodo.mutate(payload);
+  }
   };
 
   const handleOnChange = (e) => {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getTodos } from "../api";
+import { delTask } from "../api";
 import './App.css'
 
 import Form from "../components/Form";
@@ -14,16 +15,17 @@ function App() {
     () => getTodos()
   );
 
+
+
   useEffect(() => {
     if (!isLoadingTodosData && todosData?.data) {
       setData(todosData.data);
     }
   }, [isLoadingTodosData, todosData?.data]);
-
   return (
     <div className="main__wrapper">
       <Form setData={setData} />
-      <List data={data} />
+      <List data={data} onDeleteItem={delTask} />
     </div>
   );
 }
