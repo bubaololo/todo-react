@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getTodos } from "../api";
-import { delTask } from "../api";
 import './App.css'
 
 import Form from "../components/Form";
@@ -25,7 +24,7 @@ function App() {
   return (
     <div className="main__wrapper">
       <Form setData={setData} />
-      <List data={data} onDeleteItem={delTask} />
+      <List data={data} />
     </div>
   );
 }

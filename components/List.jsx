@@ -1,17 +1,28 @@
+import { useMutation, useQueryClient } from "react-query";
+import { delTask } from "../api";
 const List = (props) => {
-  const { data, onDeleteItem } = props;
+  const { data } = props;
+
+  const queryClient = useQueryClient();
+
+  const mutationDeleteTask = useMutation((id) => delTask(id), {
+    onSuccess: () => {
+      queryClient.invalidateQueries("todos-data");
+    },
+  });
 
   const handleDeleteClick = (id) => {
-    // Вызываем функцию onDeleteItem и передаем ей id для удаления
-    onDeleteItem(id);
+    mutationDeleteTask.mutate(id);
   };
 
   return (
     <div className="list">
-      {data.map((dataItem, index) => (
+      {data.map((dataItem) => (
         <div key={dataItem.id} className="list__item">
           <span>{dataItem.task} </span>
-          <span><button onClick={() => handleDeleteClick(dataItem.id)}>X</button></span>
+          <span>
+            <button onClick={() => handleDeleteClick(dataItem.id)}>X</button>
+          </span>
         </div>
       ))}
     </div>
