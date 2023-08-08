@@ -8,29 +8,24 @@ function Form() {
 
   const queryClient = useQueryClient();
 
-  const mutationAddTodo = useMutation(
-    
-    (payload) => addTodos(payload),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries("todos-data");
-      
-      },
-      onSettled: () => {
-        setName("");
-      }
-    }
-  );
+  const mutationAddTodo = useMutation((payload) => addTodos(payload), {
+    onSuccess: () => {
+      queryClient.invalidateQueries("todos-data");
+    },
+    onSettled: () => {
+      setName("");
+    },
+  });
 
   const handleAddTodo = (event) => {
     event.preventDefault();
-    if(name){
-    const payload = {
-      task: name,
-    };
-  
-    mutationAddTodo.mutate(payload);
-  }
+    if (name) {
+      const payload = {
+        task: name,
+      };
+
+      mutationAddTodo.mutate(payload);
+    }
   };
 
   const handleOnChange = (e) => {
@@ -38,7 +33,7 @@ function Form() {
   };
 
   return (
-    <div>
+    <>
       <input
         className="text__input"
         type="text"
@@ -48,7 +43,7 @@ function Form() {
       <button onClick={handleAddTodo} className="submit__button">
         добавить задачу
       </button>
-    </div>
+      </>
   );
 }
 export default Form;

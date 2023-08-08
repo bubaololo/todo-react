@@ -2,8 +2,6 @@ import { useMutation, useQueryClient } from "react-query";
 import { delTask } from "../api";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import ListItemText from "@mui/material/ListItemText";

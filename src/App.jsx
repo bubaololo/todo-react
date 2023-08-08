@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { getTodos } from "../api";
-import './App.css'
+
 
 import Form from "../components/Form";
 import TodoList from "../components/TodoList";
-import { ListItem } from "@mui/material";
 
 function App() {
   const [data, setData] = useState([""]);
