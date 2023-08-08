@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const baseUrl = "https://brightside.gq/";
-const baseUrl = "http://todo.api/api/v1/";
+const baseUrl = "https://brightside.gq/api/v1/";
+// const baseUrl = "http://todo.api/api/v1/";
 
 const url = baseUrl + "tasks";
 

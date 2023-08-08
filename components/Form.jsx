@@ -9,13 +9,16 @@ function Form() {
   const queryClient = useQueryClient();
 
   const mutationAddTodo = useMutation(
-    "add-todo",
+    
     (payload) => addTodos(payload),
     {
       onSuccess: () => {
         queryClient.invalidateQueries("todos-data");
-        setName("");
+      
       },
+      onSettled: () => {
+        setName("");
+      }
     }
   );
 

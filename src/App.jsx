@@ -4,7 +4,8 @@ import { getTodos } from "../api";
 import './App.css'
 
 import Form from "../components/Form";
-import List from "../components/List";
+import TodoList from "../components/TodoList";
+import { ListItem } from "@mui/material";
 
 function App() {
   const [data, setData] = useState([""]);
@@ -24,7 +25,7 @@ function App() {
   return (
     <div className="main__wrapper">
       <Form setData={setData} />
-      <List data={data} />
+      <TodoList data={data} />
     </div>
   );
 }
