@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { addTodos } from "../api";
+import { addTodos } from "../../api";
 import { useQueryClient } from "react-query";
 
 function Form() {

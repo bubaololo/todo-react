@@ -3,8 +3,8 @@ import { useQuery } from "react-query";
 import { getTodos } from "../api";
 
 
-import Form from "../components/Form";
-import TodoList from "../components/TodoList";
+import Form from "./components/Form";
+import TodoList from "./components/TodoList";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 

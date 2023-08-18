@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "react-query";
-import { delTask } from "../api";
+import { delTask } from "../../api";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import DeleteIcon from '@mui/icons-material/Delete';
