@@ -1,13 +1,12 @@
 import axios from "axios";
 
-const baseUrl = "https://brightside.gq/api/v1/";
-// const baseUrl = "http://todo.api/api/v1/";
+// const baseUrl = "https://brightside.gq/api/v1/";
+const baseUrl = "http://todo.api/api/v1/";
 
 const url = baseUrl + "tasks";
 
-export const getTodos = async () => {
-  
-  return axios.get(url).then((response) => response.data);
+export const getTodos = async (payload) => {  
+  return await axios.get(url, {params: payload}).then((response) => response.data);
 };
 
 export const addTodos = async (payload) => {

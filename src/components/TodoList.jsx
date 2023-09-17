@@ -2,8 +2,8 @@ import { useMutation, useQueryClient } from "react-query";
 import { delTask } from "../../api";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import DeleteIcon from '@mui/icons-material/Delete';
-import IconButton from '@mui/material/IconButton';
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
 import ListItemText from "@mui/material/ListItemText";
 
 const TodoList = (props) => {
@@ -25,7 +25,7 @@ const TodoList = (props) => {
     <List>
       {data.map((dataItem) => (
         <ListItem>
-          <ListItemText key={dataItem.id} primary={dataItem.task} />
+          <ListItemText key={dataItem.id} primary={dataItem.description} />
 
           <IconButton
             onClick={() => handleDeleteClick(dataItem.id)}

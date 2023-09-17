@@ -3,8 +3,9 @@ import { useMutation } from "react-query";
 import { addTodos } from "../../api";
 import { useQueryClient } from "react-query";
 
-function Form() {
-  const [name, setName] = useState("");
+function Form(props) {
+  const { activeTabName } = props;
+  const [tabLabel, setTabLabel] = useState("");
 
   const queryClient = useQueryClient();
 
@@ -13,15 +14,17 @@ function Form() {
       queryClient.invalidateQueries("todos-data");
     },
     onSettled: () => {
-      setName("");
+      setTabLabel("");
     },
   });
 
-  const handleAddTodo = (event) => {
-    event.preventDefault();
-    if (name) {
+  const handleAddTodo = ({ tabLabel, tabType }) => {
+    if (tabLabel && activeTabName) {
       const payload = {
-        task: name,
+        description: tabLabel,
+        // label
+        // description
+        type: tabType,
       };
 
       mutationAddTodo.mutate(payload);
@@ -29,7 +32,7 @@ function Form() {
   };
 
   const handleOnChange = (e) => {
-    setName(e.target.value);
+    setTabLabel(e.target.value);
   };
 
   return (
@@ -37,13 +40,18 @@ function Form() {
       <input
         className="text__input"
         type="text"
-        value={name}
+        value={tabLabel}
         onChange={handleOnChange}
       />
-      <button onClick={handleAddTodo} className="submit__button">
+      <button
+        onClick={() =>
+          handleAddTodo({ tabLabel: tabLabel, tabType: activeTabName })
+        }
+        className="submit__button"
+      >
         добавить задачу
       </button>
-      </>
+    </>
   );
 }
 export default Form;
